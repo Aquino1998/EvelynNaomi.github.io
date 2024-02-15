@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carta para Evelyn Naomi</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #ffcccc; /* Fondo color rosa claro */
+  }
+
+  .girasol {
+    width: 50px; /* Tamaño ajustado para girasoles */
+    height: 50px; /* Tamaño ajustado para girasoles */
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M0 0h512v512H0z" fill="%23ffcc00" /><path d="M256 512c-141.2 0-256-114.8-256-256S114.8 0 256 0s256 114.8 256 256-114.8 256-256 256zm0-480C132.5 32 32 132.5 32 256s100.5 224 224 224 224-100.5 224-224S379.5 32 256 32z" fill="%23000"/><path d="M368 256c0 61.9-50.1 112-112 112s-112-50.1-112-112 50.1-112 112-112 112 50.1 112 112z" fill="%23ffcc00"/><circle cx="256" cy="256" r="48" fill="%23000"/></svg>'); /* Icono de girasol */
+    background-size: cover;
+    position: absolute;
+    border-radius: 50%;
+    animation: fall 5s linear infinite;
+  }
+
+  @keyframes fall {
+    0% {
+      transform: translateY(-100vh) scale(0.5);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(100vh) scale(1.5) rotate(360deg);
+      opacity: 0;
+    }
+  }
+
+  .card {
+    width: 300px;
+    background-color: rgba(105, 216, 224, 0.8); /* Fondo semi-transparente */
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(194, 80, 67, 0.605);
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .button {
+    padding: 10px 20px;
+    background-color: #7bebab; /* Color botón */
+    color: rgb(203, 90, 58);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 20px;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  #moreInfo, #numeroInfo {
+    margin-top: 20px;
+  }
+</style>
+</head>
+<body>
+
+<div class="background"></div>
+
+<div class="card">
+  <h2>PARA LA BRILLANTE ESTUDIANTE DE ODONTOLOGIA </br> Evelyn Naomi</h2>
+  <p>Espero que estés teniendo un Hermoso DIA.</p>
+</div>
+
+<button class="button" onclick="mostrarMasInfo()"> PRECIONA ESTE BOTON SI TE GUSTARIA 
+  SABER COMO SOY </button>
+
+<div class="card hidden" id="moreInfo">
+  <p>¡Hola de nuevo!</p>
+  <p>HOLA EVE, Buenas noches, Nuevamente molestandote una vez mas jiji, espero te encuentres
+  muy bien de salud y te la estes pasando de lo mejor en este dia con tus amigos (as) </p>
+
+  <p> CARACTERISTICAS</p>
+
+  <p> <ul>
+    Piel morena
+  </ul>Piel morena
+    156 cm de estatura
+    Gordito jaja pa no decir gordo jaja
+    Pelo lacio 
+    Ojos chiquitos color negros jeje
+    Risueñoso
+
+    Es todo lo que te puedo decir de mi ya lo demas solo tu podras opinar de mi si es que algun dia nos llegamos a conocer y platicar
+
+  </p>
+  <p>¡Que tengas una bonita noche EvelynNaomi !</p>
+</div>
+
+<button class="button" onclick="mostrarNumero()">¿RESPONDER CARTA?</button>
+
+<div class="card hidden" id="numeroInfo">
+  <p>WhatsApp
+
+
+
+7561359966
+
+
+  </p>
+</div>
+
+<script>
+  function mostrarMasInfo() {
+    document.getElementById("moreInfo").classList.remove("hidden");
+  }
+
+  function mostrarNumero() {
+    document.getElementById("numeroInfo").classList.remove("hidden");
+  }
+
+  function crearGirasoles() {
+    var girasolesContainer = document.createElement('div');
+    girasolesContainer.style.position = 'fixed';
+    girasolesContainer.style.top = '0';
+    girasolesContainer.style.left = '0';
+    girasolesContainer.style.width = '100%';
+    girasolesContainer.style.height = '100%';
+    girasolesContainer.style.pointerEvents = 'none';
+    document.body.appendChild(girasolesContainer);
+
+    setInterval(function() {
+      var girasol = document.createElement('div');
+      girasol.className = 'girasol';
+      girasol.style.left = Math.random() * window.innerWidth + 'px';
+      girasolesContainer.appendChild(girasol);
+
+      setTimeout(function() {
+        girasol.remove();
+      }, 5000);
+    }, 500);
+  }
+
+  window.onload = function() {
+    crearGirasoles();
+  };
+</script>
+
+</body>
+</html>
